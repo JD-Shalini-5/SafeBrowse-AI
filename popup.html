@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      width: 280px;
+      padding: 16px;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #121212;
+      color: #ffffff;
+      margin: 0;
+    }
+    h3 { margin-top: 0; color: #ffdd00; font-size: 16px; letter-spacing: 0.5px; }
+    label { font-size: 12px; color: #b3b3b3; display: block; margin-bottom: 6px; }
+    fieldset { border: 1px solid #333333; border-radius: 4px; margin: 0 0 12px 0; padding: 8px; }
+    legend { font-size: 12px; color: #b3b3b3; padding: 0 4px; }
+    .cat-row { display: flex; align-items: center; margin-bottom: 4px; }
+    .cat-row input[type="checkbox"] { margin-right: 8px; }
+    .cat-row label { margin-bottom: 0; color: #ffffff; font-size: 13px; }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      background: #1e1e1e;
+      border: 1px solid #333333;
+      color: #ffffff;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    input[type="text"]:focus { border-color: #ffdd00; outline: none; }
+    input[type="range"] { width: 100%; margin-bottom: 4px; }
+    .sensitivity-labels { display: flex; justify-content: space-between; font-size: 10px; color: #777; margin-bottom: 12px; }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #ffdd00;
+      border: none;
+      color: #000000;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+    button:hover { background: #ffe433; }
+    .status { margin-top: 8px; font-size: 11px; text-align: center; min-height: 14px; }
+    .status.success { color: #4caf50; }
+    .note { font-size: 10px; color: #666; margin-top: 10px; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <h3>SafeBrowse AI</h3>
+
+  <fieldset>
+    <legend>Trigger categories</legend>
+    <div class="cat-row"><input type="checkbox" id="cat-violence" value="violence"><label for="cat-violence">Violence</label></div>
+    <div class="cat-row"><input type="checkbox" id="cat-weapons" value="weapons"><label for="cat-weapons">Weapons</label></div>
+    <div class="cat-row"><input type="checkbox" id="cat-accidents" value="accidents"><label for="cat-accidents">Accidents / disasters</label></div>
+    <div class="cat-row"><input type="checkbox" id="cat-gore" value="gore"><label for="cat-gore">Blood / gore</label></div>
+    <div class="cat-row"><input type="checkbox" id="cat-phobia_insects" value="phobia_insects"><label for="cat-phobia_insects">Insects / bugs</label></div>
+    <div class="cat-row"><input type="checkbox" id="cat-phobia_heights" value="phobia_heights"><label for="cat-phobia_heights">Heights / falling</label></div>
+    <div class="cat-row"><input type="checkbox" id="cat-phobia_medical" value="phobia_medical"><label for="cat-phobia_medical">Needles / medical</label></div>
+  </fieldset>
+
+  <label for="triggerInput">Custom topics or fears (comma-separated):</label>
+  <input type="text" id="triggerInput" placeholder="e.g. clowns, snakes">
+
+  <label for="sensitivity">Sensitivity</label>
+  <input type="range" id="sensitivity" min="0" max="100" value="50">
+  <div class="sensitivity-labels"><span>Fewer blurs</span><span>More blurs</span></div>
+
+  <button id="saveBtn">Save Safety Preferences</button>
+  <div id="status" class="status"></div>
+
+  <p class="note">All detection runs on-device using a local sentence-embedding model — nothing you type or browse is sent anywhere.</p>
+
+  <script src="popup.js"></script>
+</body>
+</html>
