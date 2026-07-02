@@ -1,24 +1,50 @@
 {
   "manifest_version": 3,
   "name": "SafeBrowse AI",
-  "version": "1.1.0",
-  "description": "Instant on-device safety layer for filtering trigger topics.",
+  "version": "2.1.0",
+  "description": "Instant on-device safety layer for filtering trigger topics using a multi-tier AI pipeline.",
+
   "permissions": [
-    "activeTab",
     "storage"
   ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": [
+        "<all_urls>"
+      ],
       "js": [
-        "lib/tf.min.js",
-        "lib/use.min.js",
-        "lib/mobilenet.min.js",
         "content.js"
       ],
-      "run_at": "document_idle"
+      "run_at": "document_start"
     }
   ],
+
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "ai-worker.js",
+        "lib/*",
+        "models/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  },
+
   "action": {
     "default_popup": "popup.html"
   }
