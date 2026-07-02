@@ -1,11 +1,11 @@
-SafeBrowse AI 🛡️
+## SafeBrowse AI 🛡️
 
 A Privacy-First Browser Extension for Contextual PTSD Trigger Filtering and Digital Wellbeing
 
 SafeBrowse AI is an advanced, on-device content moderation engine engineered to protect users dealing with Post-Traumatic Stress Disorder (PTSD), severe anxiety, or specific phobias from unexpected digital triggers. By shifting content classification from cloud-based systems directly to the user's browser, the application provides real-time protection while maintaining absolute user privacy.
 
 
-🚀 Key Technical Features
+## 🚀 Key Technical Features
 
 
 100% Privacy-First Architecture (Edge AI): All text parsing and image pixel classification take place locally inside the user's browser context utilizing TensorFlow.js. Zero browsing data or personal configurations are ever transmitted to a central cloud server.
@@ -17,7 +17,7 @@ Intelligent Image Context Aggregation: Features an advanced structural parser th
 
 
 
-🧠 System Architecture & Filtering Logic
+## 🧠 System Architecture & Filtering Logic
 
 SafeBrowse AI processes webpage elements through a three-layer validation pipeline to optimize accuracy against computing overhead:
 
@@ -53,7 +53,7 @@ Tier 3: Computer Vision Layer (MobileNet CNN): Screens images as they scroll int
 
 
 
-🛠️ Project Directory Tree
+## 🛠️ Project Directory Tree
 
 text├── manifest.json        # Extension configuration & script execution manifest
 ├── popup.html           # User preference dashboard layout (Dark/Yellow Aesthetic)
@@ -67,7 +67,7 @@ text├── manifest.json        # Extension configuration & script execution 
     ├── use.min.js         # Universal Sentence Encoder Model library
     └── mobilenet.min.js   # MobileNet Computer Vision Model library
 
-⚙️ Installation & Deployment
+## ⚙️ Installation & Deployment
 
 Since this extension runs fully locally, you can load it into any Chromium-based browser (Chrome, Edge, Brave) using Developer Mode:
 
@@ -81,7 +81,7 @@ Enable Developer Mode: Toggle the Developer mode switch in the top-right corner.
 
 Load the Project: Click the Load unpacked button in the top-left, and select the project folder containing your manifest.json.
 
-🔧 Technologies Used
+## 🔧 Technologies Used
 
 
 Languages: JavaScript (ES6+), HTML5, CSS3
